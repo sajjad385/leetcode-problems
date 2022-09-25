@@ -1,24 +1,28 @@
 <?php
 
-    /**
-     * @param Integer[] $nums
-     * @param Integer $target
-     * @return Integer[]
-     */
-    public function twoSum($nums, $target)
-        {
+     class Solution {
+
+        /**
+         * @param Integer[] $nums
+         * @param Integer $target
+         * @return Integer[]
+         */
+        function twoSum($nums, $target) {
             $arr = [];
-            for ($i = 1; $i < count($nums); $i++) {
-                if (($nums[$i] + $nums[$i - 1]) == $target) {
-                    $arr[] = $i - 1;
-                    $arr[] = $i;
-                    break;
+            for ($i = 0; $i < count($nums); $i++) {
+                for ($j = 0; $j < count($nums); $j++) {
+                    if ($i == $j) continue;
+                    if ($nums[$i] + $nums[$j] == $target) {
+                        $arr[] = $i;
+                        $arr[] = $j;
+                        return $arr;
+                    }
                 }
             }
             return $arr;
         }
+    }
 
-    twoSum([2,7,11,15], 9);
 
 
     /*sample 31 ms submission
